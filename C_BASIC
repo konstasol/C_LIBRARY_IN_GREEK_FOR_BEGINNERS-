@@ -1,0 +1,118 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	system("chcp 1253 > nul");
+	int a;
+	int b;    
+	int sum;
+	int diafora;
+	int piliko;           //ακέραια διαίρεση
+	float division;       //κανονική διαίρεση
+	int ypoloipo;         //υπόλοιπο διαίρεσης
+	int bitfor;           //bitwise << 3 --> επι 2*2*2
+	int bitback;          //bitwise >>2 --> δια 2*2
+	
+	int xorp;             //^ xor αληθεια οταν και τα 2 διαφορετικα
+	
+	printf("%s","Δώσε τον πρώτο αριθμό: ");
+	scanf("%d",&a);
+	printf("%s","Δώσε τον δεύτερο αριθμό: ");
+	scanf("%d",&b);
+	
+	
+	sum=a+b;
+	diafora=a-b;
+	piliko=a/b;          //Προσοχή, b !=0
+	division=(float)a/b;
+	ypoloipo=a%b;        //modulo
+	bitfor=a>>3;
+	bitback=a<<2;
+	xorp=a^a;         
+	/*ισχυει για 1, 0 , η το xor μετα ξυ των δυαδικων ψηφιων τους πχ 6^3
+	  110 (6)
+	^ 011 (3)
+	-----
+  	 101  (5) 
+	*/
+	
+	printf("%d  +  %d = %d\n", a, b, sum);
+	printf("%d  -  %d = %d\n", a, b, diafora);
+	printf("%d  /  %d = %d (ακέραια διαίρεση)\n", a, b, piliko);
+	printf("%d  /  %d = %.2f (κανονική διαίρεση)\n", a, b, division);
+	printf("%d mod %d = %d\n", a, b,ypoloipo);
+	printf("%d >>  %d = %d\n", a, 3,bitfor);
+	printf("%d <<  %d = %d\n", a, 2,bitback);
+	printf("%d x o r %d = %d\n", a, b,a ^ b);
+	
+	
+	int addition = a | b; // Προσθήκη
+    int subtraction = a & b; // Αφαίρεση
+    int xor_result = a ^ b; // XOR
+    int left_shift = a << 2; // Μετατόπιση αριστερά
+    int right_shift = a >> 1; // Μετατόπιση δεξιά
+    int negation = ~a; // Αρνητικό
+	puts("");
+    printf("%d  |  %d: %d\n", a,b,addition);
+    printf("%d  &  %d: %d\n", a,b,subtraction);
+    printf("%d  ^  %d: %d\n", a,b,xor_result);
+    printf("%d  << 2 : %d\n", a,left_shift);
+    printf("%d  >> 1 : %d\n", a,right_shift);
+    printf("~%d: %d\n",a, negation);
+	
+	return 0;
+	
+	
+	/*
+	Αριθμητικοί τελεστές:	
+	Πρόσθεση +
+	Αφαίρεση -
+	Πολλαπλασιασμός *
+	Διαίρεση /
+	Υπόλοιπο % (modulo)
+	
+	Τελεστές σύγκρισης:	
+	Ίσο ==
+	Διάφορο !=
+	Μικρότερο <
+	Μεγαλύτερο >
+	Μικρότερο ή ίσο <=
+	Μεγαλύτερο ή ίσο >=
+	
+	
+	Τελεστές λογικής:	
+	Λογικό "Και" &&
+	Λογικό "Ή" ||
+	Αρνητικό ! (not)
+	
+	Τελεστές ανάθεσης:	
+	Ανάθεση =
+	Αύξηση/Μείωση +=, -=, *=, /=, %=
+	Αυτοεκχώρηση ++, --
+	
+	Τελεστές bit:	
+	Προσθήκη |
+	Αφαίρεση &
+	  0100 (4)  (δινει 1 όταν και τα δυο ειναι 1)αλλιως 0 (κάνουμε την πραξη and μεταξυ των bit
+	& 0001 (1)
+	---------
+  	  0000 (0)
+
+	XOR ^
+	Μετατόπιση αριστερά <<
+	Μετατόπιση δεξιά >>
+	Αρνητικό ~
+	
+	πχ ~6
+	binary 6 : 110
+	8bit:       00000110
+	Αντιστροφο  11111001
+	αρνητικος (βρισκω το μετρο)
+			    00000110
+			+1  00000111 = 7 
+			Αρα -7
+			Αρα ~6 = -7    
+	*/
+	
+}
