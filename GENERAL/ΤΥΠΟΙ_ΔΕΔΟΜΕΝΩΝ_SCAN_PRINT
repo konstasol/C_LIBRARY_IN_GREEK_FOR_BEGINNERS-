@@ -1,0 +1,88 @@
+#include <stdio.h>
+
+int main() {
+	system("chcp 1253>nul");
+    int integer;
+    
+    float floating_point;
+    double double_float;
+    char character;
+    long long_integer;
+    long long long_long;
+    short short_integer;
+    
+    
+    unsigned int unsign;
+    size_t array_size ;
+
+
+    // Εισαγωγή τιμών
+    printf("Εισάγετε έναν ακέραιο αριθμό: ");
+    scanf("%d", &integer);
+    printf("\nΟ ακέραιος είναι: %d\n", integer);
+
+    printf("\nΕισάγετε έναν δεκαδικό αριθμό: ");
+    scanf("%f", &floating_point);
+    printf("Ο δεκαδικός αριθμός  είναι: %f\n", floating_point);
+
+    printf("\nΕισάγετε έναν διπλό δεκαδικό αριθμό: ");
+    scanf("%lf", &double_float);
+    printf("Ο διπλός δεκαδικός αριθμός είναι: %lf\n", double_float);
+
+    printf("\nΕισάγετε ένα χαρακτήρα: ");
+    scanf(" %c", &character);  // Προσοχή: χρειάζεται κενό πριν το %c για να αγνοήσει τα κενά
+	printf("Ο χαρακτήρας  είναι: %c\n", character);
+	
+	
+    printf("\nΕισάγετε έναν μακρύ ακέραιο αριθμό: ");
+    scanf("%ld", &long_integer);
+    printf("Ο μακρύς ακέραιος  είναι: %ld\n", long_integer);
+    
+    printf("\nΕισάγετε έναν μακρύ-μακρυ ακέραιο αριθμό: ");
+    scanf("%ld", &long_long);
+    printf("Ο μακρύς ακέραιος  είναι: %ld\n", long_long);
+
+    printf("\nΕισάγετε έναν σύντομο ακέραιο αριθμό: ");
+    scanf("%hd", &short_integer);
+    printf("Ο σύντομος ακέραιος είναι: %hd\n", short_integer);
+
+    printf("\nΔώσε έναν ακέραιο unsigned int αριθμό: ");
+    scanf("%u", &unsign);
+
+    printf("\nΕισήχθη ο μη προσημασμενος αριθμός: %u\n", unsign);
+    
+   
+    printf("Δώσε το μέγεθος του πίνακα: ");
+    scanf("%zu", &array_size);
+
+    printf("Εισήχθη το μέγεθος του πίνακα: %zu\n", array_size);
+    
+    
+    
+
+    return 0;
+    
+    /*
+    ΔΕΚΑΔΙΚΟΙ
+    type       -  printf - scanf
+    long doube    %Lf       %Lf
+    double 		  %f		%lf
+    float 		  %f        %f
+    
+    ΑΚΕΡΑΙΟΙ            printf   scanf
+    unsigned long long  %llu     %llu
+    long long int       %lld     %lld
+	unsigned long int   %lu      %lu
+	long int            %ld      %ld
+	unsigned int        %u       %u
+	int                 %d       %d
+	unsigned short      %hu      %hu
+	short  int          %hd      %hd
+	size_t              %zu      %zu  //μέγεθος πίνακα (0 ή θετικες)
+	
+	ΓΡΑΜΜΑΤΑ			printf    scanf
+	char                %c        %c   
+	char word[10]       %s        %9s
+	το τελευταιο '\0'
+	*/
+}
