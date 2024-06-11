@@ -1,27 +1,27 @@
 #include <stdio.h>
-#define N 8
+#define N 15
 
 
 int main(void){
 	system("chcp 1253>nul");
 	int i;
 	int p[N];
-	printf("Δώσε το 1-ο στοιχείο:");
+	printf("Ξ”ΟΟƒΞµ Ο„ΞΏ 1-ΞΏ ΟƒΟ„ΞΏΞΉΟ‡ΞµΞ―ΞΏ: ");
 	scanf("%d",&p[0]);
 	for (i=1;i<N;++i){
 		do{
-			printf("Δώσε το %d-ο στοιχείο:",i+1);
+			printf("Ξ”ΟΟƒΞµ Ο„ΞΏ %d-ΞΏ ΟƒΟ„ΞΏΞΉΟ‡ΞµΞ―ΞΏ: ",i+1);
 			scanf("%d",&p[i]);
-			if(p[i]<p[i-1]) puts("Εισάγετε μεγαλύτερο από το προηγούμενο!");
+			if(p[i]<p[i-1]) puts("Ξ•ΞΉΟƒΞ¬Ξ³ΞµΟ„Ξµ ΞΌΞµΞ³Ξ±Ξ»ΟΟ„ΞµΟΞΏ Ξ±Ο€Ο Ο„ΞΏ Ο€ΟΞΏΞ·Ξ³ΞΏΟΞΌΞµΞ½ΞΏ!");
 		}while(p[i]<p[i-1]);
 	}
-	puts("Αρχικός Πίνακας: ");
+	puts("Ξ‘ΟΟ‡ΞΉΞΊΟΟ‚ Ξ Ξ―Ξ½Ξ±ΞΊΞ±Ο‚: ");
 	for(i=0;i<N;++i){
 		printf("[%d] ",p[i]);
 	}
 	int x;
 	
-	printf("Αριθμός προς αναζήτηση: ");
+	printf("\nΞ‘ΟΞΉΞΈΞΌΟΟ‚ Ο€ΟΞΏΟ‚ Ξ±Ξ½Ξ±Ξ¶Ξ®Ο„Ξ·ΟƒΞ·: ");
 	scanf("%d",&x);
 	//binary
 	int start=0;
@@ -29,27 +29,34 @@ int main(void){
 	int found=0;
 	int  middle;
 	int count=1;
+	
+	printf("\nΞ•Ο€Ξ±Ξ½Ξ»Ξ¬Ξ»Ξ·ΟΞ·: %d\n",count++);
+	for(i=start;i<=finish;++i) printf("[%d]",p[i]);
+	
+	
 	while(start<=finish){
 		middle=(start+finish)/2;
-		printf("\nΕπανλάληψη: %d\n",count++);
-		for(i=start;i<=finish;++i) printf("[%d]",p[i]);
-		printf("  -middle=%d\n",middle);
+		printf("  -->middle= p[%d] = %d\n",middle,p[middle]);
 		if (x==p[middle]) {
 			found=1;		
 			
 			break;
 		}else if (x>p[middle]) start=middle+1;
 		else finish=middle-1;
+		printf("\nΞ•Ο€Ξ±Ξ½Ξ¬Ξ»Ξ·ΟΞ·: %d\n",count++);
+		for(i=start;i<=finish;++i) printf("[%d]",p[i]);
+		
 		
 	}
-	printf("\nΕπανλάληψη: %d\n",count++);
-	for(i=start;i<=finish;++i) printf("[%d]",p[i]);
-	printf("  -middle=%d\n",middle);
-	found==1? puts("Βρέθηκε!") : puts("Δεν βρέθηκε!");
+	
+	found==1? puts("Ξ’ΟΞ­ΞΈΞ·ΞΊΞµ!") : puts("Ξ”ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ!");
 	
 	return 0;
 	
 }
+
+
+
 
 
 
