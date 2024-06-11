@@ -6,22 +6,22 @@ int main(void){
 	system("chcp 1253>nul");
 	int i;
 	int p[N];
-	printf("Δώσε το 1-ο στοιχείο:");
+	printf("Γ„ΓΎΓ³Γ¥ Γ΄Γ― 1-Γ― Γ³Γ΄Γ―Γ©Γ·Γ¥ΓΓ―:");
 	scanf("%d",&p[0]);
 	for (i=1;i<N;++i){
 		do{
-			printf("Δώσε το %d-ο στοιχείο:",i+1);
+			printf("Γ„ΓΎΓ³Γ¥ Γ΄Γ― %d-Γ― Γ³Γ΄Γ―Γ©Γ·Γ¥ΓΓ―:",i+1);
 			scanf("%d",&p[i]);
-			if(p[i]<p[i-1]) puts("Εισάγετε μεγαλύτερο από το προηγούμενο!");
+			if(p[i]<p[i-1]) puts("Ξ•ΞΉΟƒΞ¬Ξ³ΞµΟ„Ξµ Ξ±ΟΞΉΞΈΞΌΟ ΞΌΞµΞ³Ξ±Ξ»ΟΟ„ΞµΟΞΏ Ξ±Ο€Ο Ο„ΞΏΞ½ Ο€ΟΞΏΞ·Ξ³ΞΏΟΞΌΞµΞ½ΞΏ");
 		}while(p[i]<p[i-1]);
 	}
-	puts("Αρχικός Πίνακας: ");
+	puts("Ξ Ξ―Ξ½Ξ±ΞΊΞ±Ο‚: ");
 	for(i=0;i<N;++i){
 		printf("[%d] ",p[i]);
 	}
 	int x;
 	
-	printf("Αριθμός προς αναζήτηση: ");
+	printf("\nΞ”ΟΟƒΟ„Ξµ Ξ±ΟΞΉΞΈΞΌΟ Ξ³ΞΉΞ± Ξ±Ξ½Ξ±Ξ¶Ξ®Ο„Ξ·ΟƒΞ·: ");
 	scanf("%d",&x);
 	//binary
 	int start=0;
@@ -31,7 +31,7 @@ int main(void){
 	int count=1;
 	while(start<=finish){
 		middle=(start+finish)/2;
-		printf("\nΕπανλάληψη: %d\n",count++);
+		printf("\nΞ•Ο€Ξ±Ξ½Ξ¬Ξ»Ξ·ΟΞ·: %d\n",count++);
 		for(i=start;i<=finish;++i) printf("[%d]",p[i]);
 		printf("  -middle=%d\n",middle);
 		if (x==p[middle]) {
@@ -42,10 +42,10 @@ int main(void){
 		else finish=middle-1;
 		
 	}
-	printf("\nΕπανλάληψη: %d\n",count++);
+	printf("\nΞ•Ο€Ξ±Ξ½Ξ¬Ξ»Ξ·ΟΞ·: %d\n",count++);
 	for(i=start;i<=finish;++i) printf("[%d]",p[i]);
 	printf("  -middle=%d\n",middle);
-	found==1? puts("Βρέθηκε!") : puts("Δεν βρέθηκε!");
+	found==1? puts("Ξ’ΟΞ­ΞΈΞ·ΞΊΞµ!") : puts("Ξ”ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµΓ¥!");
 	
 	return 0;
 	
