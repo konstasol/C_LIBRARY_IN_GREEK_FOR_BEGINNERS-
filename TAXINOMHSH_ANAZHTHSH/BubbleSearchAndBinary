@@ -1,0 +1,83 @@
+#include <stdio.h>
+//έχουμε εναν πίνακα ταξινομήμενο με bubble sort (βλέπε αντίστοιχο βίντεο)
+
+//συνάρτηση για να διαβάσουμε 1 πίνακα
+void readTable(int pin[],int n){
+	int i;
+	for(i=0;i<n;++i){
+		printf("Δώστε το %d-o στοιχείο: ",i+1);
+		scanf("%d",&pin[i]);
+	}
+	
+}
+
+
+//συνάρτηση για να τυπώσουμε έναν πίνακα
+void printTable(int pin[],int n){
+	
+	int i;
+	for(i=0;i<n;++i){
+		printf("[%d] ",pin[i]);
+	}
+	
+}
+
+//Συναρτηση bubble
+void bubblesort(int pin[],int n){
+	int i,j,temp;
+	for(i=0;i<n-1;++i){
+		for(j=0;j<n-i-1;++j){
+			if (pin[j]>pin[j+1]){
+			
+			    temp= pin[j];
+				pin[j]= pin[j+1];
+				pin[j+1]=temp;    //swap
+			}
+		}
+	}
+}
+
+int binarysearch(int pin[],int n, int a){
+	
+	int start=0,finish=n-1,found=0,middle;
+	while(start<=finish){
+		middle=(start+finish)/2; //ακέραια διαίρεση
+		if(a==pin[middle]){
+			found=1;
+			break;
+			
+		}else if (a<pin[middle]) finish=middle-1;
+		else start=middle+1;
+			
+		
+		
+	}
+	return found;
+}
+
+
+
+
+int main(void){
+	system("chcp 1253>nul ");
+	int p[10];
+	int x,find;
+	
+	readTable(p,10);
+	puts("\nΑρχικός Πίνακας:")	;
+	printTable(p,10);
+	
+	bubblesort(p,10); //κλήση bubble
+	
+	puts("\nΤαξινομημένοςΠίνακας:")	;
+	printTable(p,10);
+	
+	printf("\nΣτοιχείο προς αναζήτηση: ");
+	scanf("%d",&x);
+	
+	//κλήση binary search
+	find=binarysearch(p,10,x);
+	find==1? puts("Βρέθηκε!") : puts ("Δεν βρέθηκε!");
+	
+	return 0;
+}
