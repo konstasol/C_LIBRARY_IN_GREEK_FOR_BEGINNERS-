@@ -34,7 +34,7 @@ void binaryTodecimal(int x){
 int main(void){
 	system("chcp 1253>nul");
 	
-	int i, num, pin[8],valid;
+	int num,valid;
 	puts(" Μετατροπή Δυαδικού σε δεκαδικό αριθμό");
 	puts("---------------------------------------");
 	do{
