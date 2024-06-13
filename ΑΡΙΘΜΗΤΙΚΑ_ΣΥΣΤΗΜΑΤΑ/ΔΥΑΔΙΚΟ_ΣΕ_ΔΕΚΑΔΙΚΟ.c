@@ -14,17 +14,21 @@ int isBinary(int num) {
 }
 
 
+//Μετατροπή σε δυαδικό με χρήση του τύπου μετατροπής σε δεκαδικό σύστημα
+//Με βάση το 2 (twos)
 void binaryTodecimal(int x){
 	int digit, temp=0,twos=1,dec=0;
 	while (x>0){
-		digit=x%10;
-		x=x/10;
-		temp=digit*twos;
-		dec+=temp;
-		twos*=2;
+		digit=x%10; 	  //παίρνω τελευταίο ψηφίο
+		x=x/10;     	  //μειώνω τον αριθμό κατα 1 ψηφίο
+		temp=digit*twos;  //φτιάχνω τον τρέχον όρο του αρθροίσματος 
+						  //(digit) * 2 εις την 0,1,2,3η κ.ο.κ 
+		dec+=temp;        //προσθέτω όρους
+		twos*=2;		  //φτιάχνω την δύναμη του 2 (πχ 2**3 * 2 = 2**4) για τον επόμενο όρο
 	}
 	printf("Δεκαδικό: %d",dec);
 }
+
 
 
 int main(void){
