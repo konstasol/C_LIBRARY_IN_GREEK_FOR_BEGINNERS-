@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,19 +9,19 @@ int main(void){
     int a,b,c,output;
     
     do{
-    	printf("%s","Äþóå ôï Á (0 Þ 1): ");
+    	printf("%s","Δώσε το Α (0 ή 1): ");
     	scanf("%d",&a);
     	
 	}while(a!=0 && a!=1);
 	
 	do{
-    	printf("%s","Äþóå ôï Â (0 Þ 1): ");
+    	printf("%s","Δώσε το Β (0 ή 1): ");
     	scanf("%d",&b);
     	
 	}while(b!=0 && b!=1);
 	
 	do{
-    	printf("%s","Äþóå ôï Ã (0 Þ 1): ");
+    	printf("%s","Δώσε το Γ (0 ή 1): ");
     	scanf("%d",&c);
     	
 	}while(c!=0 && c!=1);
@@ -28,9 +29,9 @@ int main(void){
 	// OR==> || , AND==>&&, XOR==>^, NOT==>!
 	// NOR==> ! (A||B), NAND==> !(A&&B), XNOR ==>!(A ^ B)
 	
-	output=( a || b || c ) && ( !a || !b || !c);    //Åäþ ôïðïèåôïýìå ôç ëïãéêÞ óõíÜñôçóç  || 
+	output=( a || b || c ) && ( !a || !b || !c);    //Εδώ τοποθετούμε τη λογική συνάρτηση  || 
 	
-	printf("¸îïäïò êõêëþìáôïò: %d ",output);
+	printf("Έξοδος κυκλώματος: %d ",output);
 	
 	return 0;
 	
