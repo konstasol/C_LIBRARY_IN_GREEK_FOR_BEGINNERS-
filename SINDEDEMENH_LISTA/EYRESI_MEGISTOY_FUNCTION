@@ -1,0 +1,87 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+	int data;
+	struct node* next;
+	
+};
+
+typedef struct node NODE;
+typedef struct node* NODE_PTR;
+
+int bigger(NODE_PTR head){
+	int count=0;
+	int max=head->data;
+	int maxid=0;
+	NODE_PTR cur;
+	cur=head;
+	while (cur){
+		count++;
+		if (cur->data>max){
+			max=cur->data;
+			maxid=count;
+			
+		}
+		cur=cur->next;
+	}
+	return maxid;
+}
+
+void delete(NODE_PTR head){
+	NODE_PTR temp;
+	while(head){
+		temp=head;
+		head=head->next;
+		free(temp);
+		
+	}
+	puts("\nΕλευθερωση Μνήμης");
+}
+
+
+
+int main(void){
+	system("chcp 1253>nul");
+	NODE_PTR head=NULL;
+	NODE_PTR current;
+	NODE_PTR newnode;
+	int i,big;
+	
+	for(i=8;i>0;--i){
+		newnode=(NODE_PTR)malloc(sizeof(NODE));
+		if(!newnode){
+			printf("memory allocation failed");
+			
+		}
+		
+		newnode->data=i;
+		newnode->next=head;
+		head=newnode;
+		
+	}
+	head->next->data=15;
+	current=head;
+	while(current){
+		printf("%d -->", current->data);
+		current=current->next;
+		
+		
+	}
+	printf("NULL");
+	
+	
+	
+	big=bigger(head);
+	printf("\nΘέση μεγαλύερου: %d-o στοιχείο",big);
+	
+	
+	delete(head);
+	return 0;
+
+
+	
+	
+	
+	
+}
