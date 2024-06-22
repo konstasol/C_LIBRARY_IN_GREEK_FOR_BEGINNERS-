@@ -1,0 +1,109 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define N 5
+
+
+struct nodelist {
+int number;
+struct nodelist *next;
+};
+
+typedef struct nodelist  NODE;
+typedef struct nodelist * NODE_PTR;
+
+
+
+
+
+
+int clean(NODE_PTR* head,int n) { //διπλός δεικτης , περασμα με αναφορα
+    
+    if (*head==NULL) {
+    	puts("Κενή λίστα!");
+    	return -1;
+	}
+    
+    NODE_PTR temp=*head;
+    NODE_PTR prev=NULL;
+    int count=1;
+    
+    while(temp){
+    	if (count == n) {
+            if (prev) {
+                prev->next = temp->next; 
+            } else {
+                *head = temp->next; 
+            }
+            free(temp); 
+            puts("\nΟ κόμβος διεγράφη");
+            return 0;
+        } else {
+            prev = temp;
+            temp = temp->next;
+            count++;
+        }
+    }
+
+    
+    
+    printf("\n\nΔεν ευρέθη!\n");
+    return -1;
+}
+	
+
+
+
+int main(void){
+	system ("chcp 1253>nul");
+	
+	NODE_PTR newnode,head;
+	NODE_PTR current;
+	
+	int i;
+	//Αρχικοποίηση λίστας
+	head=NULL;
+	
+	for(i=10;i>0;--i){
+		//Δεσμευση μνημης για δημιουργία νέου κόμβου
+		newnode=(NODE_PTR)malloc(sizeof(NODE));
+		if(!newnode){
+			printf("Η δέσμευση μνήμης απέτυχε!\n");
+		}
+		
+		newnode->number=i;
+		
+		//Εισαγωγή νέου κόμβου		
+				
+		newnode->next=head;
+		head=newnode;
+			
+		
+	
+	}
+	
+	
+	//Εκτύπωση λίστας
+	current=head;
+	while (current){
+		printf("%d -->",current->number);
+		current=current->next;
+	}
+	printf("NULL");
+	
+	
+	int t=clean(&head,3);
+
+	puts("Λίστα μετά τη διαγραφή: ");
+	//Εκτύπωση λίστας
+	current=head;
+	while (current){
+		printf("%d -->",current->number);
+		current=current->next;
+	}
+	printf("NULL");
+	
+	
+	return 0;
+	
+	
+}
