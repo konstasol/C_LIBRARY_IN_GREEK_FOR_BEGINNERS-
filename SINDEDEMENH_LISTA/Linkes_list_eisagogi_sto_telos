@@ -1,0 +1,86 @@
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#define N 5
+
+
+struct Node{
+	int data;
+	struct Node* next;
+};
+
+typedef struct Node NODE;
+typedef struct Node* NODE_PTR;
+
+
+void clean(NODE_PTR head){
+	NODE_PTR temp;
+	while(head){
+		temp=head;
+		head=head->next;
+		free(temp);
+	}
+	
+	printf("\n\nΕπιτυχής εκαθάριση μνήμης!\n");
+}
+
+int main(void){
+	system ("chcp 1253>nul");
+	
+	NODE_PTR lastnode;
+	
+	NODE_PTR newnode,head;
+	NODE_PTR current;
+	
+	int i;
+	//Αρχικοποίηση λίστας
+	head=NULL;
+	
+	for(i=0;i<3;++i){
+		//Δεσμευση μνημης για δημιουργία νέου κόμβου
+		newnode=(NODE_PTR)malloc(sizeof(NODE));
+		if(!newnode){
+			printf("Η δέσμευση μνήμης απέτυχε!\n");
+		}
+		
+		printf("Δώστε αριθμό για εισαγωγή στον κόμβο: ");
+		scanf("%d",&newnode->data);
+		
+		//Εισαγωγή νέου κόμβου
+		
+				
+		
+		
+		if(head==NULL){			
+			head=newnode;
+			lastnode=newnode;
+		} else{
+			lastnode->next=newnode;
+			newnode->next=NULL;
+			lastnode=newnode;
+			
+		}
+			
+		
+	
+	}
+	
+	
+	//Εκτύπωση λίστας
+	current=head;
+	while (current){
+		printf("%d -->",current->data);
+		current=current->next;
+	}
+	printf("NULL");
+	
+	
+	
+	clean(head);
+	head=NULL;
+	
+	return 0;
+	
+	
+}
