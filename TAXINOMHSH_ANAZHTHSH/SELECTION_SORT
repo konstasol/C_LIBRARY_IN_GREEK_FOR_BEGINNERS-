@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define N 8
+
+int main(void){
+	system("chcp 1253>nul");
+	int pin[N];
+	int i,j,pos,temp;
+	
+	//Εισαγωγή στοιχείων
+	for(i=0;i<N;++i){
+		printf("Δώστε το %d-o στοιχείο: ",i+1);
+		scanf("%d",&pin[i]);
+		
+	}
+	
+	//Εκτύπωση Αρχικού Πίνακα
+	puts("Αρχικός Πίνακας: ");
+	for(i=0;i<N;++i){
+		printf("[%d] ",pin[i]);
+		
+	}
+	
+	//Selection Sort
+	for(i=0;i<N;++i){
+		pos=i;
+		for(j=i+1;j<N;++j){
+			if(pin[j]<pin[pos]) {
+				pos=j;
+			}	
+		}
+		temp=pin[i];  //ανταλλάζω το i με το j που βρήκα το min
+		pin[i]=pin[pos];
+		pin[pos]=temp;
+		
+	}
+
+	
+	//Εκτύπωση Τελικού Πίνακα
+	puts("\nΤαξινομημένος Πίνακας: ");
+	for(i=0;i<N;++i){
+		printf("[%d] ",pin[i]);
+		
+	}
+	
+}
+
