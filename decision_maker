@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+
+#define SIZE 100
+#define W_SIZE 50
+
+
+int main(void){
+	system("chcp 1253>nul");
+	
+	
+	int index;
+	char choices[SIZE][W_SIZE];
+	int i=0;
+	
+	printf("Whimsical Byte Babble");
+	printf("\nLet the bytes decide...\n");
+	
+	printf("\nΓράψε τις επιλογές που σε ταλανίζουν και όταν εισαι έτοιμος πάτα = \n");
+	
+	
+	
+	while(1){
+		printf("Επιλογή %d :  ",i+1);
+		scanf("%s",choices[i]);
+		
+		
+	
+		if(choices[i][0]=='='){
+			
+			printf("%s","\n\n\n\nΤΑ ΒΥΤΕS ΕΠΕΛΕΞΑΝ ΓΙΑ ΕΣΕΝΑ:  ");
+			break;
+		}
+		
+		
+		if(i==100){
+			puts("Ε κάπου φτάνει όμως, ασε με να διαλέξω εγω για εσένα: ");
+			break;
+			
+		}
+		++i;
+		
+	}
+	
+	srand(time(NULL));  //ΠΑΡΑΓΩΓΗ ΤΥΧΑΙΟΥ SEED ΑΠΟ ΩΡΑ ΥΠΟΛΟΓΙΣΤΗ
+	
+	index=rand() %i;
+	
+	printf("------------>  %s   <---------------",choices[index]);
+	puts("\n\n\n\n");
+	
+}
